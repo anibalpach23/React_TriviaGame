@@ -3,6 +3,23 @@ import logo from "./logo.svg";
 import "./App.css";
 import Question from "./components/Question";
 
+constructor(props) {
+  super(props);
+  this.state={
+    counter: 0,
+    questionId: 1,
+    question: '',
+    answerOptions: [],
+    answer: '',
+    answersCount: {
+      nintendo: 0,
+      microsoft: 0, 
+      sony: 0
+    },
+    result: ''
+  };
+}
+
 class App extends Component {
   render() {
     return (
