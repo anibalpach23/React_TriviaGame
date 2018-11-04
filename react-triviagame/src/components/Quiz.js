@@ -16,4 +16,27 @@ function Quiz(props) {
   );
 }
 
+function renderAnswerOptions(key) {
+  return (
+    <AnswerOption
+      key={key.content}
+      answerContent={key.content}
+      answerType={key.type}
+      answer={props.questionId}
+      questionId={props.questionId}
+      onAnswerSelected={props.onAnswerSelected}
+    />
+  );
+}
+
+Quiz.propTypes = {
+  answer: PropTypes.string.isRequired,
+  answerOptions: PropTypes.array.isRequired,
+  counter: PropTypes.number.isRequired,
+  question: PropTypes.string.isRequired,
+  questionID: PropTypes.number.isRequired,
+  questionTotal: PropTypes.number.isRequired,
+  onAnswerSelected: PropTypes.func.isRequired
+};
+
 export default Quiz;
