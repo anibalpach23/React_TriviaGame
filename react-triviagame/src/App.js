@@ -26,7 +26,7 @@ class App extends Component {
 
   componentWillMount() {
     const shuffledAnswerOptions = quizQuestions.map(question =>
-      this.shuffledArray(question.answers)
+      this.shuffleArray(question.answers)
     );
 
     this.setState({
@@ -35,7 +35,7 @@ class App extends Component {
     });
   }
 
-  shuffledArray(array) {
+  shuffleArray(array) {
     var currentIndex = array.length,
       temporaryValue,
       randomIndex;
@@ -63,7 +63,7 @@ class App extends Component {
   }
 
   setUserAnswer(answer) {
-    this.setState(state => ({
+    this.setState((state, props) => ({
       answersCount: {
         ...state.answersCount,
         [answer]: state.answersCount[answer] + 1
@@ -111,6 +111,10 @@ class App extends Component {
         onAnswerSelected={this.handleAnswerSelected}
       />
     );
+  }
+
+  renderResult() {
+    return <Result quizResult={this.state.result} />;
   }
 
   render() {
